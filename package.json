@@ -21,7 +21,7 @@
     "url": "https://github.com/LuckyYam"
   },
   "scripts": {
-    "build": "yarn rimraf dist && tsc",
+    "build": "yarn rimraf dist && tsc && typedoc",
     "lint": "eslint .",
     "format": "prettier --write --config .prettierrc.json \"src/**/*.ts\""
   },
