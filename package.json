@@ -1,0 +1,40 @@
+{
+  "name": "manganelo-scrapper",
+  "description": "Maganelo Scrapper",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LuckyYam/MangaNeloScrapper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LuckyYam/MangaNeloScrapper/issues"
+  },
+  "homepage": "https://github.com/LuckyYam/MangaNeloScrapper#readme",
+  "author": {
+    "name": "Lucky Yambem",
+    "url": "https://github.com/LuckyYam"
+  },
+  "scripts": {
+    "build": "yarn rimraf dist && tsc",
+    "lint": "eslint .",
+    "format": "prettier --write --config .prettierrc.json \"src/**/*.ts\""
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.12"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.4",
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
+    "eslint": "^8.20.0",
+    "typedoc": "^0.23.8",
+    "typescript": "^4.7.4"
+  }
+}

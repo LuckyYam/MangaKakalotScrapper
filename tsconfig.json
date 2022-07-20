@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "target": "es6",                            
+      "module": "commonjs",                               
+      "declaration": true,                       
+      "outDir": "./dist",
+      "allowSyntheticDefaultImports": true,      
+      "esModuleInterop": true,                            
+      "forceConsistentCasingInFileNames": true,            
+      "strict": true,                                 
+      "noImplicitAny": true,                            
+      "strictNullChecks": true,                         
+      "strictFunctionTypes": true,                    
+      "noImplicitThis": true,                           
+      "skipLibCheck": true                                 
+    },
+    "include": ["./src/**/*.ts"]
+  }
+  
