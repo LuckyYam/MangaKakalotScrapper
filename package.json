@@ -1,6 +1,6 @@
 {
-  "name": "mangadex-scrapper",
-  "description": "MangaDex Scrapper",
+  "name": "mangakakalot-scrapper",
+  "description": "Manga Kakalot Scrapper",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -10,12 +10,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/LuckyYam/MangaDexScrapper.git"
+    "url": "https://github.com/LuckyYam/MangaKakalotScrapper.git"
   },
   "bugs": {
-    "url": "https://github.com/LuckyYam/MangaDexScrapper/issues"
+    "url": "https://github.com/LuckyYam/MangaKakalotScrapper/issues"
   },
-  "homepage": "https://github.com/LuckyYam/MangaDexScrapper#readme",
+  "homepage": "https://github.com/LuckyYam/MangaKakalotScrapper#readme",
   "author": {
     "name": "Lucky Yambem",
     "url": "https://github.com/LuckyYam"
