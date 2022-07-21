@@ -1,9 +1,10 @@
 import { load } from 'cheerio'
-import { IMangaSearchResponse, IMangaShortDetails } from '../Types'
+import { Manga } from '../Classes'
+import { IMangaSearchResponse } from '../Types'
 
 export const parseSearcResults = (data: string): IMangaSearchResponse => {
     const $ = load(data)
-    const searchResults: IMangaShortDetails[] = []
+    const searchResults: Manga[] = []
     const pageElements = $('.group_page')
     const currentPage = Number($(pageElements).find('.page_select').text())
     const totalPages = Number(
@@ -29,15 +30,9 @@ export const parseSearcResults = (data: string): IMangaSearchResponse => {
             if (text.includes('Updated')) lastUpdated = text.replace('Updated : ', '').trim()
             if (text.includes('View')) views = Number(text.replace('View : ', '').replace(/,/g, '').trim())
         })
-        searchResults.push({
-            name,
-            id,
-            author,
-            views,
-            lastUpdated,
-            thumbnail,
-            url: `https://ww3.mangakakalot.tv${slug || '/'}`
-        })
+        searchResults.push(
+            new Manga(name, id, author, views, lastUpdated, thumbnail, `https://ww3.mangakakalot.tv${slug || '/'}`)
+        )
     })
     return {
         pagination: {

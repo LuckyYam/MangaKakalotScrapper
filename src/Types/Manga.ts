@@ -1,4 +1,18 @@
+import { Chapter } from '../Classes'
 import { genres, status } from './Enums'
+
+export interface IMangaResponse extends IMangaShortDetails {
+    /** Summary of the manga */
+    summary: string
+    /** Status of the manga */
+    status: status
+    /** Genres of the manga */
+    genres: genres[]
+    /** Alternate names of the manga */
+    alternateNames: string[]
+    /** Chapters of the manga */
+    chapters: Chapter[]
+}
 
 export interface IMangaShortDetails {
     /** Name of the manga */
@@ -17,20 +31,7 @@ export interface IMangaShortDetails {
     url: string
 }
 
-export interface IMangaResponse extends IMangaShortDetails {
-    /** Summary of the manga */
-    summary: string
-    /** Status of the manga */
-    status: status
-    /** Genres of the manga */
-    genres: genres[]
-    /** Alternate names of the manga */
-    alternateNames: string[]
-    /** Chapters of the manga */
-    chapters: IChapter[]
-}
-
-interface IChapter {
+export interface IChapter {
     /** Chapter number */
     chapter: number
     /** Title of the chapter */

@@ -1,4 +1,5 @@
 import { load } from 'cheerio'
+import { Chapter } from '../Classes'
 import { genres, IMangaResponse, status as Status } from '../Types'
 
 export const parseMangaInfo = (data: string): IMangaResponse => {
@@ -39,7 +40,7 @@ export const parseMangaInfo = (data: string): IMangaResponse => {
                 .filter((x) => x !== '') as genres[]
     })
     const summary = $('#noidungm').text().split('summary:', 2)[1].trim()
-    const chapters: IMangaResponse['chapters'] = []
+    const chapters: Chapter[] = []
     $('.chapter-list > .row').each((i, el) => {
         let title = ''
         let views = 0
@@ -53,12 +54,12 @@ export const parseMangaInfo = (data: string): IMangaResponse => {
                 switch (i) {
                     case 0:
                         {
-                            chapter = Number($(el).text().trim().replace('Chapter ', ''))
                             title = $(el).find('a').text().trim()
                             const slug = $(el).find('a').attr('href')
                             if (slug) {
                                 id = slug.split('manga-')[1]
                                 url += slug
+                                chapter = Number(id.split('-')[1])
                             }
                         }
                         break
@@ -69,7 +70,7 @@ export const parseMangaInfo = (data: string): IMangaResponse => {
                         uploadedAt = $(el).text().trim()
                 }
             })
-        chapters.push({ chapter, title, id, views, uploadedAt, url })
+        chapters.push(new Chapter(chapter, title, id, views, uploadedAt, url))
     })
     return {
         name,

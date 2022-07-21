@@ -1,6 +1,6 @@
 export enum genres {
     all = 'all',
-    action = 'action',
+    action = 'Action',
     adventure = 'Adventure',
     comedy = 'Comedy',
     cooking = 'Cooking',
