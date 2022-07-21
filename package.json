@@ -23,7 +23,8 @@
   "scripts": {
     "build": "yarn rimraf dist && tsc && typedoc",
     "lint": "eslint .",
-    "format": "prettier --write --config .prettierrc.json \"src/**/*.ts\""
+    "format": "prettier --write --config .prettierrc.json \"src/**/*.ts\"",
+    "lint:fix": "eslint --fix ."
   },
   "dependencies": {
     "axios": "^0.27.2",
