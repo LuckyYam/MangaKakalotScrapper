@@ -1,6 +1,6 @@
 {
-  "name": "manganelo-scrapper",
-  "description": "Maganelo Scrapper",
+  "name": "mangadex-scrapper",
+  "description": "MangaDex Scrapper",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -10,12 +10,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/LuckyYam/MangaNeloScrapper.git"
+    "url": "https://github.com/LuckyYam/MangaDexScrapper.git"
   },
   "bugs": {
-    "url": "https://github.com/LuckyYam/MangaNeloScrapper/issues"
+    "url": "https://github.com/LuckyYam/MangaDexScrapper/issues"
   },
-  "homepage": "https://github.com/LuckyYam/MangaNeloScrapper#readme",
+  "homepage": "https://github.com/LuckyYam/MangaDexScrapper#readme",
   "author": {
     "name": "Lucky Yambem",
     "url": "https://github.com/LuckyYam"
