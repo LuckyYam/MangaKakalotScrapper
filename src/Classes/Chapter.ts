@@ -1,4 +1,5 @@
 import { getChapterPages } from '../Helpers'
+import { Pages } from '.'
 import { IChapter } from '../Types'
 
 export class Chapter implements IChapter {
@@ -13,7 +14,7 @@ export class Chapter implements IChapter {
 
     /**
      * Gets the pages of the chapter
-     * @returns {Promise<{ title: string; url: string }[]>}
+     * @returns {Promise<Pages>}
      */
-    public getPages = async (): Promise<{ title: string; url: string }[]> => await getChapterPages(this.id)
+    public getPages = async (): Promise<Pages> => await getChapterPages(this.id)
 }

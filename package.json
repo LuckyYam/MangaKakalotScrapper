@@ -26,20 +26,25 @@
     "url": "https://github.com/LuckyYam"
   },
   "scripts": {
-    "build": "yarn rimraf dist && tsc && typedoc",
-    "lint": "eslint .",
-    "format": "prettier --write --config .prettierrc.json \"src/**/*.ts\"",
-    "lint:fix": "eslint --fix ."
+    "build": "yarn rimraf dist && yarn tsc && yarn typedoc",
+    "lint": "yarn eslint .",
+    "format": "yarn prettier --write --config .prettierrc.json \"src/**/*.ts\"",
+    "lint:fix": "yarn eslint --fix .",
+    "prepack": "yarn tsc"
   },
   "dependencies": {
     "axios": "^0.27.2",
-    "cheerio": "^1.0.0-rc.12"
+    "cheerio": "^1.0.0-rc.12",
+    "path": "^0.12.7",
+    "pdfkit": "^0.13.0"
   },
   "devDependencies": {
     "@types/node": "^18.0.4",
+    "@types/pdfkit": "^0.12.6",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
     "eslint": "^8.20.0",
+    "prettier": "^2.7.1",
     "typedoc": "^0.23.8",
     "typescript": "^4.7.4"
   }

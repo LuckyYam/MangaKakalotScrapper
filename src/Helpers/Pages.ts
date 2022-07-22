@@ -1,12 +1,13 @@
 import axios from 'axios'
 import { parseChapterPages, validatePage } from '../Parser'
+import { Pages } from '../Classes'
 
 /**
  * Gets the pages of the manga chapter
  * @param {string} id The ID of the chapter
- * @returns {Promise<{ title: string; url: string }[]>}
+ * @returns {Promise<Pages>}
  */
-export const getChapterPages = async (id: string): Promise<{ title: string; url: string }[]> => {
+export const getChapterPages = async (id: string): Promise<Pages> => {
     if (!id || typeof id !== 'string')
         throw new Error(`The type of parameter 'id' should be type string. Recieved ${typeof id}`)
     const url = `https://ww3.mangakakalot.tv/chapter/manga-${id}`
@@ -15,9 +16,9 @@ export const getChapterPages = async (id: string): Promise<{ title: string; url:
         .then(({ data }) => {
             const valid = validatePage(data)
             if (!valid) throw new Error('Invalid ID of a manga chapter.')
-            const pages = parseChapterPages(data)
-            if (!pages.length) throw new Error('Invalid ID of a manga chapter.')
-            return pages
+            const results = parseChapterPages(data)
+            if (!results.pages.length) throw new Error('Invalid ID of a manga chapter.')
+            return results
         })
         .catch((err) => {
             throw new Error(err.message)

@@ -1,6 +1,7 @@
 import { load } from 'cheerio'
+import { Pages } from '../Classes'
 
-export const parseChapterPages = (data: string): { title: string; url: string }[] => {
+export const parseChapterPages = (data: string): Pages => {
     const $ = load(data)
     const pages: { title: string; url: string }[] = []
     $('.img-loading').each((i, el) => {
@@ -8,5 +9,5 @@ export const parseChapterPages = (data: string): { title: string; url: string }[
         const url = $(el).attr('data-src')
         if (url) pages.push({ title, url })
     })
-    return pages
+    return new Pages(pages)
 }

@@ -30,6 +30,7 @@ import { searchManga } from 'mangakakalot-scrapper'
     //gets the pages of the chapter
     const pages = await chapter.getPages()
     console.log(pages)
+    await pages.download('Fairy Tail Ch-1') //downloads the chapter pages and saves it in a folder
 })()
 ```
 
@@ -49,6 +50,10 @@ import { getChapterPages } from 'mangakakalot-scrapper'
 //id of the chapter --> https://ww3.mangakakalot.tv/chapter/manga-kw951979/chapter-228
 const id = 'kw951979/chapter-228'
 getChapterPages(id)
-    .then((res) => console.log(res))
+    .then(async (res) => {
+        console.log(res)
+        //builds a PDF of the chapter pages and saves it
+        await res.PDF('Nisekoi-228.pdf') //it will return a Buffer if no filename is provided
+    })
     .catch((err) => console.error(err))
 ```
