@@ -16,5 +16,7 @@ export class Chapter implements IChapter {
      * Gets the pages of the chapter
      * @returns {Promise<Pages>}
      */
-    public getPages = async (): Promise<Pages> => await getChapterPages(this.id)
+    public async getPages(): Promise<Pages> {
+        return await getChapterPages(this.id)
+    }
 }

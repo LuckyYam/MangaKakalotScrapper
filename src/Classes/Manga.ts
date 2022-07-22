@@ -17,5 +17,7 @@ export class Manga implements IMangaShortDetails {
      * Gets the info the manga
      * @returns {Promise<IMangaResponse>}
      */
-    public getInfo = async (): Promise<IMangaResponse> => await getManga(this.id)
+    public async getInfo(): Promise<IMangaResponse> {
+        return await getManga(this.id)
+    }
 }

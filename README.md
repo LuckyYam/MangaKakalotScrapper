@@ -30,7 +30,8 @@ import { searchManga } from 'mangakakalot-scrapper'
     //gets the pages of the chapter
     const pages = await chapter.getPages()
     console.log(pages)
-    await pages.download('Fairy Tail Ch-1') //downloads the chapter pages and saves it in a folder
+    //downloads the chapter pages and saves it in a folder
+    await pages.download('Fairy Tail Ch-1') 
 })()
 ```
 

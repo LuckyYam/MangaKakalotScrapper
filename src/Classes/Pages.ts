@@ -16,7 +16,7 @@ export class Pages {
      * @param {string} folderName Name of the folder to save the the downloaded chapter pages
      * @returns {Promise<void>}
      */
-    public download = async (folderName: string): Promise<void> => {
+    public async download(folderName: string): Promise<void> {
         if (!folderName) throw new Error('No folder name provided to save the downloaded pages')
         if (!existsSync(folderName)) await mkdir(folderName, { recursive: true })
         const isDirectory = (await stat(folderName)).isDirectory()
@@ -34,7 +34,7 @@ export class Pages {
      * @param {string | undefined} filename Filename of the PDF
      * @returns {Promise<Buffer | string>} Will return a Buffer if the filename is not provided and string if the filename's provided
      */
-    public PDF = async (filename?: string): Promise<Buffer | string> => {
+    public async PDF(filename?: string): Promise<Buffer | string> {
         const pdf = new PDFDocument({ autoFirstPage: false })
         const file = filename
             ? `${filename}${filename.endsWith('.pdf') ? '' : '.pdf'}`
