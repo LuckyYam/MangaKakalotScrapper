@@ -1,14 +1,17 @@
 {
   "name": "mangakakalot-scrapper",
   "description": "MangaKakalot scrapper",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "license": "MIT",
   "keywords": [
     "manga",
     "manga-reader",
-    "mangakakalot"
+    "mangakakalot",
+    "manga-downloader",
+    "manga-scraper",
+    "manga-pdf"
   ],
   "files": [
     "dist"
