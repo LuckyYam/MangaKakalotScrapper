@@ -32,14 +32,22 @@ export class Pages {
     /**
      * Builds the PDF of the chapter pages
      * @param {string | undefined} filename Filename of the PDF
-     * @returns {Promise<Buffer | string>} Will return a Buffer if the filename is not provided and string if the filename's provided
+     * @returns {Promise<Buffer>} A Buffer of the PDF
      */
+    public async PDF(): Promise<Buffer>
+    /**
+     * Builds the PDF of the chapter pages
+     * @param {string} filename Filename of the PDF
+     * @returns {Promise<Buffer>} Filename of the PDF
+     */
+    public async PDF(filename: string): Promise<string>
     public async PDF(filename?: string): Promise<Buffer | string> {
         const pdf = new PDFDocument({ autoFirstPage: false })
-        const file = filename
+        let file = filename
             ? `${filename}${filename.endsWith('.pdf') ? '' : '.pdf'}`
             : `${tmpdir()}/${Math.random().toString(36)}.pdf`
-        pdf.pipe(createWriteStream(file))
+        const stream = createWriteStream(file)
+        pdf.pipe(stream)
         for (const { url } of this.pages) {
             const { data } = await axios.get<Buffer>(url, { responseType: 'arraybuffer' })
             const filename = `${tmpdir()}/${Math.random().toString(36)}.${url.includes('jpg') ? 'jpg' : 'png'}`
@@ -51,6 +59,10 @@ export class Pages {
             const index = this.pages.findIndex((x) => x.url === url)
             if (index === this.pages.length - 1) pdf.end()
         }
+        await new Promise((resolve, reject) => {
+            stream.on('finish', () => resolve(file))
+            stream.on('error', reject)
+        })
         if (filename) return file
         const buffer = await readFile(file)
         await unlink(file)
